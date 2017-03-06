@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block main %}
+{{ post.text }}
+    {{ post.content }}
+
+    <% if user.is_superuser %}
+    <h1>{{ post.id }}</h1>
+    <form method="post" action="{% url 'edit_entry' post.id %}">
+    {%  csrf_token %}
+    <button type="submit" class='btn btn-primary'>
+        Edit
+    </button>
+    </form>
+
+    <form method="post" action="{% url 'delete_entry' post.id %}">
+    {%  csrf_token %}
+    <button type="submit" class='btn btn-danger'>
+        Delete
+    </button>
+    </form>
+    {% endif %}
+
+{% endblock %}

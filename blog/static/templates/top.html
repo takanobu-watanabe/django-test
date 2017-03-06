@@ -1,0 +1,22 @@
+{%  extends 'base.html' %}
+
+{% block main %}
+    {% if user.is_anonymous %}
+        You are not member
+    {% else %}
+        You are admin
+    {% endif %}
+
+    {% for item in all_posts %}
+        {{item}}
+
+        <div class="blog-post">
+            <h2 class="blog-post-title">{{ item }}</h2>
+            <p class="blog-post-meta">{{ item.pub_date }} </p>
+            <p>{{ item.content}}</p>
+            <a href="{%  url 'detail' item.id %}">See more</a>
+            </ol>
+          </div><!-- /.blog-post -->
+       {% endfor %}
+{%  endblock %}
+

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <form class="form-inline" role="form" method='post' action='.'>
+        {%  csrf_token %}
+        <div class="form-group" style=''>
+            <label class="sr-only" for="id_text">Title</label>
+        <input id="id_text" maxlength="200" name="text" type="text" placeholder="Type a tittle">
+        </div>
+        <div class="form-group">
+        <label class="sr-only" for="id_context">CONTETNT</label>
+        <textarea cols="40" id="id_content" name="content" class="form-control" rows="10" placeholder="Type a content"></textarea>
+        </div>
+        <div class="form-group">
+        <button type='submit' class='btn btn-primary'>SAVE</button>
+        </div>
+    </form>
+{% endblock %}
+
